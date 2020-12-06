@@ -1,38 +1,129 @@
-.App {
+/* .App {
+  text-align: center;
+} */
+
+/* RESET SELECTOR */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
+}
+
+h1, h2 {
+  font-family: fantasy, "Courier New", monospace;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* Utility Classes */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+a {
+  display: block;
   color: white;
+  text-decoration: none;
 }
 
-.App-link {
-  color: #61dafb;
+a:hover {
+  color: orange;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Navbar */
+
+#navbar-container {
+  background-color: black;
+  color: white;
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto auto auto;
+  font-size: 3vh;
+  height: 6vh;
+}
+
+#brand {
+  grid-column-start: 1;
+}
+
+#navbar-items {
+  grid-column-start: 2;
+
+  display: flex;
+  
+  justify-content: space-evenly;
+  
+}
+
+#login {
+  grid-column-start: 3;
+  text-align: right;
+  padding-right: 2vh;
+}
+
+#brand img {
+  height: 5vh;
+  margin-left: 1vw;
+}
+
+#navbar-items div {
+  border: solid 1px white;
+  padding: .5vw 2vw;
+  
+}
+
+#navbar-container a {
+
+}
+
+#navbar-container a:hover {
+  background-color: grey;
+}
+
+/* Home CSS */
+
+#home-container {
+  background: url('./images/galaxy.jpg');
+  background-size: cover;
+  color: white;
+  max-width: 100%;
+  margin: auto;
+  height: 88vh;
+  padding: 2vh;
+}
+
+#menu-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  text-align: center;
+  font-size: 2vw;
+}
+
+#menu-grid h2 {
+  text-decoration: underline;
+}
+
+#menu1 {
+  grid-column-start: 1;
+
+}
+
+#menu2 {
+  grid-column-start: 2;
+}
+
+/* Footer CSS */
+
+#footer-container {
+  background-color: black;
+  text-align: center;
+  width: 100vw;
+  height: 6vh;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding-top: 1.5vh;
+
 }
