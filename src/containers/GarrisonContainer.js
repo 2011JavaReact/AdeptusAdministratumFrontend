@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // import fetchPlanets from "../actions/fetchPlanets";
-import PlanetList from "../components/planet/PlanetList";
+import GarrisonList from "../components/garrison/GarrisonList";
 
 const PLANET_URL = "http://52.53.150.109:8080/AdeptusAdministratum/planets";
 const GARRISON_URL = "http://52.53.150.109:8080/AdeptusAdministratum/garrisons";
 
-export default class PlanetContainer extends React.Component {
+export default class GarrisonContainer extends React.Component {
   
   state = {
     id: 0,
@@ -33,23 +33,22 @@ export default class PlanetContainer extends React.Component {
   };
 
   componentDidMount() {
-    fetch(PLANET_URL)
+    fetch(GARRISON_URL)
       .then((resp) => resp.json())
       .then((json) => {
         this.setState(
-          { planetArray: [...json] },
+          { garrisonArray: [...json] },
           () =>
-            console.log("returned array from fetch: ", this.state.planetArray)
+            console.log("returned array from fetch: ", this.state.garrisonArray)
         );
       });
-
   }
 
   render() {
     return (
-      <div id="planet-container">
-        <h1>This is the PlanetContainer!</h1>
-        <PlanetList planetArray={this.state.planetArray} />
+      <div id="garrison-container">
+        <h1>This is the GarrisonContainer!</h1>
+        <GarrisonList garrisonArray={this.state.garrisonArray} />
       </div>
     );
   }

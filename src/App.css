@@ -105,8 +105,12 @@ th, tr {
   font-size: 2vw;
 }
 
+#menu-grid img {
+  height: 15vh;
+}
+
 #menu-grid h2 {
-  text-decoration: underline;
+  
 }
 
 #menu1 {
@@ -114,25 +118,47 @@ th, tr {
 
 }
 
+
+
 #menu2 {
   grid-column-start: 2;
 }
 
 /* PlanetContainer CSS */
 
+#planet-container {
+  background: url('./images/planet1.jpg');
+  background-size: cover;
+  color: white;
+  max-width: 100%;
+  margin: auto;
+  height: 88vh;
+  padding: 2vh;
+}
+
 .planet-table {
   margin: auto;
   text-align: center;
 }
 
+/* Garrison Container */
 
-
+#garrison-container {
+  background: url('./images/army1.jpg');
+  background-size: cover;
+  color: white;
+  max-width: 100%;
+  margin: auto;
+  height: 88vh;
+  padding: 2vh;
+}
 
 /* Footer CSS */
 
 #footer-container {
   background-color: black;
   text-align: center;
+  font-size: 2vh;
   width: 100vw;
   height: 6vh;
   position: fixed;

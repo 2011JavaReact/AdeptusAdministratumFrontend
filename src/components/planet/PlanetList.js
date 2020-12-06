@@ -1,9 +1,10 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 
 const PlanetList = (props) => {
-  console.log("props in planet list component planets: ", props.planetArray[0]);
-  console.log("props in planet list component garrisons: ", props.garrisonArray[0]);
-  console.log("garrison test: ", props.garrisonArray.find(garrison => garrison.id === props.planetArray[0].garrison_id));
+  // console.log("props in planet list component planets: ", props.planetArray[0]);
+  // console.log("props in planet list component garrisons: ", props.garrisonArray[0]);
+  // console.log("garrison test: ", props.garrisonArray.find(garrison => garrison.id === props.planetArray[0].garrison_id));
 
   return (
     <table className="planet-table">
@@ -25,7 +26,7 @@ const PlanetList = (props) => {
               <td>{planet.name}</td>
               <td>{planet.inhabitants}</td>
               <td>{planet.population}</td>
-              <td>Add Button to View Details</td>
+              <td><Link to={`/planets/${planet.id}`}>Get Planet Details</Link></td>
               {/* For now... not working before fetch.  Plan to just display when clicking on planet for more detail... */}
               {/* <td>{props.garrisonArray.find(garrison => garrison.id === props.planet.garrison_id)}</td> */}
               {/* <td>{props.garrisonArray.find(garrison => garrison.id === props.planet.garrison_id).size || 0}</td> */}
