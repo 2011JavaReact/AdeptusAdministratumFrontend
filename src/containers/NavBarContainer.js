@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import logo from '../images/logo.png';
 
 export default class NavBarContainer extends React.Component {
@@ -8,7 +9,10 @@ export default class NavBarContainer extends React.Component {
         return(
             <div id="navbar-container">
                 <div id="brand">
-                    <img src={logo} />
+                <Link className="menu-link" to="/" >
+                <img src={logo} alt="Logo" />
+          </Link>
+                    
                 </div>
                 <div id="navbar-items">
                 <div>Item1</div>
