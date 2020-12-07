@@ -1,15 +1,21 @@
 import React from "react";
 
-const PLANET_URL = "http://52.53.150.109:8080/AdeptusAdministratum/planets";
+const PLANET_URL = "http://52.53.150.109:8080/AdeptusAdministratum";
 const GARRISON_URL = "http://52.53.150.109:8080/AdeptusAdministratum/garrisons";
 
-export default class AddPlanet extends React.Component {
+export default class EditPlanet extends React.Component {
+
   state = {
-    id: 0,
+    id: "",
     name: "",
     inhabitants: "",
     population: "",
     garrisonId: "",
+    garrison: {
+      id: 0,
+      chapter: "",
+      size: 0,
+    },
     garrisonArray: [
       {
         id: 0,
@@ -24,6 +30,28 @@ export default class AddPlanet extends React.Component {
       .then((resp) => resp.json())
       .then((json) => {
         this.setState({ garrisonArray: [...json] });
+      });
+
+    fetch(PLANET_URL + this.props.match.url)
+      .then((resp) => resp.json())
+      .then((json) => {
+        console.log(json);
+        const garrison = {
+          id: json.garrison.id,
+          chapter: json.garrison.chapter,
+          size: json.garrison.size,
+        };
+        this.setState(
+          {
+            id: json.id,
+            name: json.name,
+            inhabitants: json.inhabitants,
+            population: json.population,
+            garrisonId: json.garrison_id,
+            garrison: { ...garrison },
+          },
+          () => console.log("returned from fetch in PlanetEDIT: ", this.state)
+        );
       });
   }
 
@@ -45,7 +73,7 @@ export default class AddPlanet extends React.Component {
     event.preventDefault();
 
     const configObject = {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -59,7 +87,7 @@ export default class AddPlanet extends React.Component {
     };
     console.log(configObject);
 
-    fetch(PLANET_URL, configObject)
+    fetch(PLANET_URL + "/planets/" + this.state.id, configObject)
       .then((resp) => console.log(resp))
       
   };
@@ -67,7 +95,7 @@ export default class AddPlanet extends React.Component {
   render() {
     return (
       <div id="add-planet-container">
-        <h1>Add Planets Form!</h1>
+        <h1>Modify Planet</h1>
         <form onSubmit={this.handleSubmit}>
           <label>
             Name:

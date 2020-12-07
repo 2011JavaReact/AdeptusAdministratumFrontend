@@ -40,6 +40,24 @@ input, select, button {
   margin: 2vh;
   font-size: 3vh;
 }
+
+Button {
+  border-radius: 50px;
+  padding: 1vh;
+  display: block;
+  margin: 2vh auto;
+
+}
+
+#updateBtn {
+  background-color: goldenrod;
+  
+}
+
+#deleteBtn {
+  background-color: red;
+}
+
 /* Navbar */
 
 #navbar-container {
@@ -165,6 +183,25 @@ input, select, button {
   display: block;
   padding: 2vh;
 }
+
+/* Planet Detail Component */
+
+#planet-detail-container {
+  background: url('./images/planet1.jpg');
+  background-size: cover;
+  text-align: center;
+  color: white;
+  max-width: 100%;
+  margin: auto;
+  height: 88vh;
+  padding: 10vh;
+}
+
+#planet-detail-container p {
+  padding: 1vh;
+}
+
+
 /* Garrison Container */
 
 #garrison-container {
