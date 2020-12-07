@@ -28,7 +28,7 @@ const Home = () => {
           <Link className="menu-link" to="/garrisons">
             View / Update / Delete Garrisons
           </Link>
-          <Link className="menu-link" to="/planets">
+          <Link className="menu-link" to="/garrisons/new">
             Add New Garrison
           </Link>
         </div>

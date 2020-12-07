@@ -8,6 +8,7 @@ import PlanetContainer from './containers/PlanetContainer';
 import PlanetDetail from './components/planet/PlanetDetail';
 import AddPlanet from './components/planet/AddPlanet';
 import GarrisonContainer from './containers/GarrisonContainer';
+import AddGarrison from './components/garrison/AddGarrison'
 import FooterContainer from './containers/FooterContainer';
 
 class App extends React.Component {
@@ -23,6 +24,7 @@ class App extends React.Component {
           {/* NEED TO ADD ACTUAL ID TO BELOW ROUTES AND PASS TO PLANET DETAIL... */}
           <Route exact path="/planets/id" component={PlanetDetail} />
           <Route exact path="/garrisons" component={GarrisonContainer} />
+          <Route exact path="/garrisons/new" component={AddGarrison} />
         </div>
         <div><FooterContainer /></div>
       </div>
