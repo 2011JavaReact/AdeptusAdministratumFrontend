@@ -22,7 +22,7 @@ class App extends React.Component {
           <Route exact path="/planets" component={PlanetContainer} />
           <Route exact path="/planets/new" component={AddPlanet} />
           {/* NEED TO ADD ACTUAL ID TO BELOW ROUTES AND PASS TO PLANET DETAIL... */}
-          <Route exact path="/planets/id" component={PlanetDetail} />
+          <Route exact path="/planets/:id" render={routerProps => <PlanetDetail {...routerProps} />} />
           <Route exact path="/garrisons" component={GarrisonContainer} />
           <Route exact path="/garrisons/new" component={AddGarrison} />
         </div>

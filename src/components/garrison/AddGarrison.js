@@ -35,6 +35,7 @@ export default class AddGarrison extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     /// need to clear form after
+    // Add redirect
     const configObject = {
       method: "POST",
       headers: {
