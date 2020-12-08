@@ -46,7 +46,6 @@ Button {
   padding: 1vh;
   display: block;
   margin: 2vh auto;
-
 }
 
 #updateBtn {
@@ -56,6 +55,10 @@ Button {
 
 #deleteBtn {
   background-color: red;
+}
+
+.msgSuccess {
+  color: green;
 }
 
 /* Navbar */

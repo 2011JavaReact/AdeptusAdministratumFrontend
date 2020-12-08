@@ -16,7 +16,7 @@ const Home = () => {
           <Link className="menu-link" to="/planets">
             View / Update / Delete Planets
           </Link>
-          <Link className="menu-link" to="/planets/new">
+          <Link className="menu-link" exact="true" to="/planets/new">
             Add New Planet
           </Link>
         </div>

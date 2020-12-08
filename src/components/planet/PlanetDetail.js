@@ -1,5 +1,5 @@
 import React from "react";
-import {Link, Redirect} from 'react-router-dom';
+import { Link, Redirect } from "react-router-dom";
 
 const PLANET_URL = `http://52.53.150.109:8080/AdeptusAdministratum`;
 
@@ -15,19 +15,18 @@ export default class PlanetDetail extends React.Component {
       chapter: "",
       size: 0,
     },
+    redirect: false,
   };
 
   componentDidMount() {
     fetch(PLANET_URL + this.props.match.url)
       .then((resp) => resp.json())
       .then((json) => {
-        console.log(json);
         const garrison = {
           id: json.garrison.id,
           chapter: json.garrison.chapter,
           size: json.garrison.size,
         };
-        console.log(garrison);
         this.setState(
           {
             id: json.id,
@@ -37,38 +36,54 @@ export default class PlanetDetail extends React.Component {
             garrisonId: json.garrison_id,
             garrison: { ...garrison },
           },
-          () => console.log("returned from fetch in PlanetDetail: ", this.state)
+          () =>
+            console.log(
+              "returned from fetch in PlanetDetail: ",
+              this.state,
+              this.props
+            )
         );
       });
   }
 
-  handleDelete = (event) => {
-  
+  handleDelete = () => {
     const configObject = {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        }
-      };
-
-      fetch(PLANET_URL + this.props.match.url, configObject)
-
-        .then((resp) => console.log("Delete Request: ", resp))
-        
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
     };
 
-  render() {
-    return (
-      <div id="planet-detail-container">
-        <h1>Planet {this.state.name}</h1>
-        <p>Inhabitants: {this.state.inhabitants}</p>
-        <p>Population: {this.state.population}</p>
-        <p>Garrison Chapter: {this.state.garrison.chapter}</p>
-        <p>Garrison Size: {this.state.garrison.size}</p>
-        <Link to={`/planets/${this.state.id}/edit`}><button id="updateBtn" >Modify Planet Details</button></Link>
-        <button id="deleteBtn" onClick={this.handleDelete}>Delete Planet</button>
-      </div>
+    fetch(PLANET_URL + this.props.match.url, configObject).then((resp) =>
+      this.setState({ redirect: true })
     );
+  };
+
+  render() {
+    if (this.state.redirect) {
+      return <Redirect to="/planets" />;
+    } else {
+      return (
+        <div id="planet-detail-container">
+          <h2 className="msgSuccess">
+            {this.props.history.location.state
+              ? this.props.history.location.state.message
+              : ""}
+          </h2>
+          <h1>Planet {this.state.name}</h1>
+          <p>Inhabitants: {this.state.inhabitants}</p>
+          <p>Population: {this.state.population}</p>
+          <p>Garrison Chapter: {this.state.garrison.chapter}</p>
+          <p>Garrison Size: {this.state.garrison.size}</p>
+          <Link to={`/planets/${this.state.id}/edit`}>
+            <button id="updateBtn">Modify Planet Details</button>
+          </Link>
+          <button id="deleteBtn" onClick={this.handleDelete}>
+            Delete Planet
+          </button>
+        </div>
+      );
+    }
   }
 }
