@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 
 const GarrisonList = (props) => {
   // console.log("props in planet list component planets: ", props.planetArray[0]);
@@ -22,7 +23,7 @@ const GarrisonList = (props) => {
               <td>{garrison.id}</td>
               <td>{garrison.chapter}</td>
               <td>{garrison.size}</td>
-              <td>Add Button to View Details</td>
+              <td><Link exact="true" to={`/garrisons/${garrison.id}`}>Get Garrison Details</Link></td>
              
             </tr>
           );

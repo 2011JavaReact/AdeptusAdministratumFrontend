@@ -8,7 +8,9 @@ import PlanetDetail from "./components/planet/PlanetDetail";
 import AddPlanet from "./components/planet/AddPlanet";
 import EditPlanet from "./components/planet/EditPlanet";
 import GarrisonContainer from "./containers/GarrisonContainer";
+import GarrisonDetail from "./components/garrison/GarrisonDetail";
 import AddGarrison from "./components/garrison/AddGarrison";
+import EditGarrison from "./components/garrison/EditGarrison";
 import FooterContainer from "./containers/FooterContainer";
 
 class App extends React.Component {
@@ -24,7 +26,6 @@ class App extends React.Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/planets" component={PlanetContainer} />
               <Route exact path="/planets/new" component={AddPlanet} />
-              {/* NEED TO ADD ACTUAL ID TO BELOW ROUTES AND PASS TO PLANET DETAIL... */}
               <Route
                 exact
                 path="/planets/:id/edit"
@@ -35,9 +36,18 @@ class App extends React.Component {
                 path="/planets/:id"
                 render={(routerProps) => <PlanetDetail {...routerProps} />}
               />
-
               <Route exact path="/garrisons" component={GarrisonContainer} />
               <Route exact path="/garrisons/new" component={AddGarrison} />
+              <Route
+                exact
+                path="/garrisons/:id/edit"
+                render={(routerProps) => <EditGarrison {...routerProps} />}
+              />
+              <Route
+                exact
+                path="/garrisons/:id"
+                render={(routerProps) => <GarrisonDetail {...routerProps} />}
+              />
             </Switch>
           </div>
           <div>

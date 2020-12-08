@@ -1,16 +1,34 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect } from 'react-router-dom';
 
-const PLANET_URL = "http://52.53.150.109:8080/AdeptusAdministratum/planets";
+const BASE_URL = "http://52.53.150.109:8080/AdeptusAdministratum";
 const GARRISON_URL = "http://52.53.150.109:8080/AdeptusAdministratum/garrisons";
 
-export default class AddGarrison extends React.Component {
+export default class EditGarrison extends React.Component {
   state = {
-    id: 0,
+    id: "",
     chapter: "",
-    size: 0,
-    redirect: false,
+    size: "",
+    redirect: false
   };
+
+  componentDidMount() {
+    
+    fetch(BASE_URL + this.props.match.url)
+      .then((resp) => resp.json())
+      .then((json) => {
+        console.log(json);
+        
+        this.setState(
+          {
+            id: json.id,
+            chapter: json.chapter,
+            size: json.size
+          },
+          () => console.log("returned from fetch in GarrisonEDIT: ", this.state)
+        );
+      });
+  }
 
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
@@ -18,10 +36,9 @@ export default class AddGarrison extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    /// need to clear form after
-    // Add redirect
+
     const configObject = {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -33,7 +50,7 @@ export default class AddGarrison extends React.Component {
     };
     console.log(configObject);
 
-    fetch(GARRISON_URL, configObject)
+    fetch(BASE_URL + "/garrisons/" + this.state.id, configObject)
       .then((resp) => resp.json())
       .then((json) => this.setState({ id: json.id, redirect: true }));
   };
@@ -44,7 +61,7 @@ export default class AddGarrison extends React.Component {
         <Redirect
           to={{
             pathname: `/garrisons/${this.state.id}`,
-            state: { message: "Garrison Successfully Created!" },
+            state: { message: "Garrison Successfully Updated!" },
           }}
         />
       );
@@ -72,7 +89,9 @@ export default class AddGarrison extends React.Component {
                 step="1000"
               />
             </label>
-            <button type="submit">Submit</button>
+            <button type="submit">
+              Update
+            </button>
           </form>
         </div>
       );

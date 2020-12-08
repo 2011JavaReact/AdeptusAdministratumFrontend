@@ -63,7 +63,6 @@ export default class AddPlanet extends React.Component {
     fetch(PLANET_URL, configObject)
       .then((resp) => resp.json())
       .then((json) => {
-        console.log("Add Planet Response", json);
         this.setState({id: json.id, redirect: true})
       });
   };

@@ -157,7 +157,7 @@ export default class EditPlanet extends React.Component {
                 {this.createGarrisonSelect()}
               </select>
             </label>
-            <button type="submit">Submit</button>
+            <button type="submit">Update</button>
           </form>
         </div>
       );
