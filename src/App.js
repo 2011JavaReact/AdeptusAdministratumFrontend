@@ -2,7 +2,9 @@ import "./App.css";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavBarContainer from "./containers/NavBarContainer.js";
-import Home from "./Home";
+import Login from "./components/user/Login";
+import Logout from "./components/user/Logout";
+import Home from "./components/Home";
 import PlanetContainer from "./containers/PlanetContainer";
 import PlanetDetail from "./components/planet/PlanetDetail";
 import AddPlanet from "./components/planet/AddPlanet";
@@ -23,7 +25,7 @@ class App extends React.Component {
           </div>
           <div className="app-div">
             <Switch>
-              <Route exact path="/" component={Home} />
+              <Route exact path="/" render={(routerProps) => <Home {...routerProps} />} />
               <Route exact path="/planets" component={PlanetContainer} />
               <Route exact path="/planets/new" component={AddPlanet} />
               <Route
@@ -48,6 +50,8 @@ class App extends React.Component {
                 path="/garrisons/:id"
                 render={(routerProps) => <GarrisonDetail {...routerProps} />}
               />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/logout" component={Logout} />
             </Switch>
           </div>
           <div>

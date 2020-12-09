@@ -47,7 +47,7 @@ export default class GarrisonContainer extends React.Component {
   render() {
     return (
       <div id="garrison-container">
-        <h1>This is the GarrisonContainer!</h1>
+        <h1>All Garrisons in the Administratum</h1>
         <GarrisonList garrisonArray={this.state.garrisonArray} />
       </div>
     );

@@ -26,8 +26,14 @@ export default class NavBarContainer extends React.Component {
           </Link>
           <div>Item3</div>
         </div>
-
-        <div id="login">Login / Username</div>
+        <div id="user-items">
+          <Link className="menu-link" to="/login">
+            Login
+          </Link>
+          <Link className="menu-link" to="/logout">
+            Logout
+          </Link>
+        </div>
       </div>
     );
   }

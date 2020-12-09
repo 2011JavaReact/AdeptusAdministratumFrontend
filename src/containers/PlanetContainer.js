@@ -7,7 +7,6 @@ const PLANET_URL = "http://52.53.150.109:8080/AdeptusAdministratum/planets";
 const GARRISON_URL = "http://52.53.150.109:8080/AdeptusAdministratum/garrisons";
 
 export default class PlanetContainer extends React.Component {
-  
   state = {
     id: 0,
     name: undefined,
@@ -15,20 +14,20 @@ export default class PlanetContainer extends React.Component {
     population: 0,
     garrisonId: 0,
     planetArray: [
-        {
-            id: 0,
-            name: "",
-            inhabitants: "",
-            population: 0,
-            garrison_id: 0
-        }
+      {
+        id: 0,
+        name: "",
+        inhabitants: "",
+        population: 0,
+        garrison_id: 0,
+      },
     ],
     garrisonArray: [
-        {
-            id: 0,
-            chapter: "",
-            size: 0
-        }
+      {
+        id: 0,
+        chapter: "",
+        size: 0,
+      },
     ],
   };
 
@@ -36,20 +35,32 @@ export default class PlanetContainer extends React.Component {
     fetch(PLANET_URL)
       .then((resp) => resp.json())
       .then((json) => {
-        this.setState(
-          { planetArray: [...json] },
-          () =>
-            console.log("returned array from fetch: ", this.state.planetArray)
+        this.setState({ planetArray: [...json] }, () =>
+          console.log("returned array from fetch: ", this.state.planetArray)
         );
       });
-
   }
+
+  sortedPlanetList = () => {
+    const sortedPlanetArray = this.state.planetArray.sort(
+      (planetA, planetB) => {
+        if (planetA.name.toUpperCase() < planetB.name.toUpperCase()) {
+          return -1;
+        }
+        if (planetB.name.toUpperCase() < planetA.name.toUpperCase()) {
+          return 1;
+        }
+        return 0;
+      }
+    );
+    return <PlanetList planetArray={sortedPlanetArray} />;
+  };
 
   render() {
     return (
       <div id="planet-container">
-        <h1>This is the PlanetContainer!</h1>
-        <PlanetList planetArray={this.state.planetArray} />
+        <h1>All Planets in the Administratum</h1>
+        {this.sortedPlanetList()}
       </div>
     );
   }

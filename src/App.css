@@ -86,7 +86,7 @@ Button {
   
 }
 
-#login {
+#user-items {
   grid-column-start: 3;
   text-align: right;
   padding-right: 2vh;
@@ -125,6 +125,13 @@ Button {
   margin: auto;
   height: 88vh;
   padding: 2vh;
+}
+
+#home-container p {
+  max-width: 50%;
+  margin: 1vh auto;
+  padding: 2vh;
+  text-align: center;
 }
 
 #menu-grid {
