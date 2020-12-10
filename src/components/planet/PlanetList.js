@@ -25,7 +25,7 @@ const PlanetList = (props) => {
               <td>{planet.id}</td>
               <td>{planet.name}</td>
               <td>{planet.inhabitants}</td>
-              <td>{planet.population}</td>
+              <td id="population">{planet.population}</td>
               <td><Link exact="true" to={`/planets/${planet.id}`}>Get Planet Details</Link></td>
               {/* For now... not working before fetch.  Plan to just display when clicking on planet for more detail... */}
               {/* <td>{props.garrisonArray.find(garrison => garrison.id === props.planet.garrison_id)}</td> */}

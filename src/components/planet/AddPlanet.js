@@ -80,7 +80,7 @@ export default class AddPlanet extends React.Component {
     } else {
       return (
         <div id="add-planet-container">
-          <h1>Add Planets Form!</h1>
+          <h1>Add a Planet</h1>
           <form onSubmit={this.handleSubmit}>
             <label>
               Name:

@@ -29,15 +29,12 @@ export default class Login extends React.Component {
         password: this.state.password,
       }),
     };
-    console.log(configObject);
 
     fetch(LOGIN_URL, configObject)
       .then((resp) => {
-        console.log(resp)  
         resp.json()
       })
       .then((json) => {
-        console.log(json);  
         this.setState({ redirect: true })
       });
   };

@@ -16,6 +16,7 @@ import EditGarrison from "./components/garrison/EditGarrison";
 import FooterContainer from "./containers/FooterContainer";
 
 class App extends React.Component {
+  
   render() {
     return (
       <Router>

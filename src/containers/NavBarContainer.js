@@ -4,8 +4,8 @@ import logo from "../images/logo.png";
 import planet2 from "../images/planet2.jpg";
 import army2 from "../images/army2.jpg";
 
-
 export default class NavBarContainer extends React.Component {
+
   render() {
     return (
       <div id="navbar-container">
@@ -24,15 +24,11 @@ export default class NavBarContainer extends React.Component {
             <img src={army2} alt="Garrison Logo" />
             Garrisons
           </Link>
-          <div>Item3</div>
+          <div>Search Inhabitants</div>
         </div>
         <div id="user-items">
-          <Link className="menu-link" to="/login">
-            Login
-          </Link>
-          <Link className="menu-link" to="/logout">
-            Logout
-          </Link>
+            <Link className="menu-link" to="/login">Login</Link>
+            <Link className="menu-link" to="/logout">Logout</Link>
         </div>
       </div>
     );
