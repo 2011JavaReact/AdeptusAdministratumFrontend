@@ -15,12 +15,11 @@ export default class GarrisonDetail extends React.Component {
     fetch(BASE_URL + this.props.match.url)
       .then((resp) => resp.json())
       .then((json) => {
-        
         this.setState(
           {
             id: json.id,
             chapter: json.chapter,
-            size: json.size
+            size: json.size,
           },
           () =>
             console.log(
@@ -46,19 +45,28 @@ export default class GarrisonDetail extends React.Component {
     );
   };
 
+  formatNumber = (number) => {
+    if (!number || Number.isNaN(number)) {
+      return number;
+    }
+    const numberArry = parseFloat(number).toFixed(2).split(".");
+    numberArry[0] = numberArry[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return numberArry[0];
+  };
+
   render() {
     if (this.state.redirect) {
       return <Redirect to="/garrisons" />;
     } else {
       return (
-        <div id="planet-detail-container">
+        <div id="garrison-detail-container">
           <h2 className="msgSuccess">
             {this.props.history.location.state
               ? this.props.history.location.state.message
               : ""}
           </h2>
           <h1>Garrison {this.state.chapter}</h1>
-          <p>Size: {this.state.size}</p>
+          <p>Size: {this.formatNumber(this.state.size)}</p>
           <Link to={`/garrisons/${this.state.id}/edit`}>
             <button id="updateBtn">Modify Garrison Details</button>
           </Link>

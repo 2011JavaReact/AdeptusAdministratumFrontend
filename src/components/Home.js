@@ -21,25 +21,23 @@ const Home = (props) => {
         <div id="menu1">
           <div>
             <img src={planet2} alt="planet logo" />
-            
           </div>
           <Link className="menu-link" to="/planets">
-          <h2>Manage Existing Planets</h2>
+            <h2>Manage Existing Planets</h2>
           </Link>
           <Link className="menu-link" exact="true" to="/planets/new">
-          <h2>Add Planet</h2>
+            <h2>Add Planet</h2>
           </Link>
         </div>
         <div id="menu2">
           <div>
             <img src={army2} alt="army logo" />
-            
           </div>
           <Link className="menu-link" to="/garrisons">
-          <h2>Manage Existing Garrisons</h2>
+            <h2>Manage Existing Garrisons</h2>
           </Link>
           <Link className="menu-link" to="/garrisons/new">
-          <h2>Add Garrison</h2>
+            <h2>Add Garrison</h2>
           </Link>
         </div>
       </div>

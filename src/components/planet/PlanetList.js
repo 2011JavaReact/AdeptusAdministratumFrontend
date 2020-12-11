@@ -1,10 +1,19 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const PlanetList = (props) => {
   // console.log("props in planet list component planets: ", props.planetArray[0]);
   // console.log("props in planet list component garrisons: ", props.garrisonArray[0]);
   // console.log("garrison test: ", props.garrisonArray.find(garrison => garrison.id === props.planetArray[0].garrison_id));
+
+  const formatNumber = (number) => {
+    if (!number || Number.isNaN(number)) {
+      return number;
+    }
+    const numberArry = parseFloat(number).toFixed(2).split(".");
+    numberArry[0] = numberArry[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return numberArry[0];
+  };
 
   return (
     <table className="planet-table">
@@ -15,7 +24,6 @@ const PlanetList = (props) => {
           <th>Inhabitants</th>
           <th>Population</th>
           <th>View Details</th>
-          
         </tr>
       </thead>
       <tbody>
@@ -25,8 +33,12 @@ const PlanetList = (props) => {
               <td>{planet.id}</td>
               <td>{planet.name}</td>
               <td>{planet.inhabitants}</td>
-              <td id="population">{planet.population}</td>
-              <td><Link exact="true" to={`/planets/${planet.id}`}>Get Planet Details</Link></td>
+              <td id="population">{formatNumber(planet.population)}</td>
+              <td>
+                <Link exact="true" to={`/planets/${planet.id}`}>
+                  Get Planet Details
+                </Link>
+              </td>
               {/* For now... not working before fetch.  Plan to just display when clicking on planet for more detail... */}
               {/* <td>{props.garrisonArray.find(garrison => garrison.id === props.planet.garrison_id)}</td> */}
               {/* <td>{props.garrisonArray.find(garrison => garrison.id === props.planet.garrison_id).size || 0}</td> */}

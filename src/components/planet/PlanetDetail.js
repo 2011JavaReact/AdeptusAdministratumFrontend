@@ -60,6 +60,15 @@ export default class PlanetDetail extends React.Component {
     );
   };
 
+  formatNumber = (number) => {
+    if (!number || Number.isNaN(number)) {
+      return number;
+    }
+    const numberArry = parseFloat(number).toFixed(2).split(".");
+    numberArry[0] = numberArry[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return numberArry[0];
+  };
+
   render() {
     if (this.state.redirect) {
       return <Redirect to="/planets" />;
@@ -73,9 +82,9 @@ export default class PlanetDetail extends React.Component {
           </h2>
           <h1>Planet {this.state.name}</h1>
           <p>Inhabitants: {this.state.inhabitants}</p>
-          <p>Population: {this.state.population}</p>
+          <p>Population: {this.formatNumber(this.state.population)}</p>
           <p>Garrison Chapter: {this.state.garrison.chapter}</p>
-          <p>Garrison Size: {this.state.garrison.size}</p>
+          <p>Garrison Size: {this.formatNumber(this.state.garrison.size)}</p>
           <Link to={`/planets/${this.state.id}/edit`}>
             <button id="updateBtn">Modify Planet Details</button>
           </Link>

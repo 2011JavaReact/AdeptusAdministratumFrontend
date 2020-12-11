@@ -10,12 +10,14 @@
   box-sizing: border-box;
 }
 
-html, body {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+html,
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 3vh;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-family: fantasy, "Courier New", monospace;
   text-align: center;
 }
@@ -33,11 +35,14 @@ a:hover {
   opacity: 1;
 }
 
-th, tr {
+th,
+tr {
   padding: 1vh;
 }
 
-input, select, button {
+input,
+select,
+button {
   margin: 2vh;
   font-size: 3vh;
 }
@@ -51,7 +56,6 @@ Button {
 
 #updateBtn {
   background-color: goldenrod;
-  
 }
 
 #deleteBtn {
@@ -63,6 +67,18 @@ Button {
 }
 
 /* Navbar */
+
+.active {
+  color: rgb(53, 107, 207);
+}
+
+#nav-div {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
 
 #navbar-container {
   background-color: black;
@@ -102,9 +118,8 @@ Button {
 
 #navbar-items div {
   border: solid 1px white;
-  padding: .5vw 2vw;
+  padding: 0.5vw 2vw;
   display: grid;
-  
 }
 
 #navbar-container a {
@@ -113,22 +128,33 @@ Button {
   text-align: center;
 }
 
+/* Login / Logout CSS */
+
+.login-container {
+  padding: 10vh;
+  text-align: center;
+}
+
+.login-container label {
+  display: block;
+}
+
 /* Home CSS */
 
 #home-container {
-  background: url('./images/galaxy.jpg');
+  background: url("./images/galaxy.jpg");
   background-size: cover;
   color: white;
   max-width: 100%;
   margin: auto;
-  height: 88vh;
-  padding: 2vh;
+  min-height: 94vh;
+  padding: 10vh 2vh 2vh 2vh;
 }
 
 #home-container p {
-  max-width: 50%;
+  max-width: 75%;
   margin: 1vh auto;
-  padding: 2vh;
+  padding: 1vh;
   text-align: center;
 }
 
@@ -144,15 +170,11 @@ Button {
 }
 
 #menu-grid h2 {
-  
 }
 
 #menu1 {
   grid-column-start: 1;
-
 }
-
-
 
 #menu2 {
   grid-column-start: 2;
@@ -161,12 +183,12 @@ Button {
 /* PlanetContainer CSS */
 
 #planet-container {
-  background: url('./images/planet1.jpg');
+  background: url("./images/planet1.jpg");
   background-size: cover;
   color: white;
   max-width: 100%;
   margin: auto;
-  height: 88vh;
+  min-height: 96vh;
   padding: 10vh 2vh;
 }
 
@@ -175,8 +197,9 @@ Button {
 .planet-table {
   margin: auto;
   text-align: left;
-  opacity: .5;
+  opacity: 0.5;
   padding: 2vh;
+  z-index: -1;
 }
 
 .planet-table thead tr {
@@ -187,7 +210,6 @@ Button {
 }
 
 .planet-table tbody tr {
-
   background: rgb(53, 107, 207);
 }
 
@@ -207,10 +229,10 @@ Button {
 
 #add-planet-container {
   width: 100%;
-  height: 88vh;
+  min-height: 95vh;
   margin: auto;
   text-align: center;
-  background: url('./images/earth.png') no-repeat;
+  background: url("./images/earth.png") no-repeat;
   background-color: rgb(8, 3, 27);
   color: white;
   padding: 10vh;
@@ -218,11 +240,11 @@ Button {
   /* background: rgb(53, 107, 207); */
 }
 
-#add-planet-container form label{
+#add-planet-container form label {
   /* background-color: grey;
   opacity: .5;
   border-radius: 10vh; */
-  
+
   /* width: 40vw;
   margin: auto; */
 }
@@ -234,13 +256,13 @@ Button {
 /* Planet Detail Component */
 
 #planet-detail-container {
-  background: url('./images/planet1.jpg');
+  background: url("./images/planet1.jpg");
   background-size: cover;
   text-align: center;
   color: white;
   max-width: 100%;
   margin: auto;
-  height: 88vh;
+  min-height: 95vh;
   padding: 10vh;
 }
 
@@ -248,24 +270,39 @@ Button {
   padding: 1vh;
 }
 
-
 /* Garrison Container */
 
 #garrison-container {
-  background: url('./images/army1.jpg');
+  background: url("./images/army1.jpg");
   background-size: cover;
   color: white;
   max-width: 100%;
   margin: auto;
-  height: 88vh;
-  padding: 2vh;
+  min-height: 95vh;
+  padding: 10vh 2vh;
 }
 
+/* Garrison Detail Component */
+
+#garrison-detail-container {
+  background: url("./images/army1.jpg");
+  background-size: cover;
+  text-align: center;
+  color: white;
+  max-width: 100%;
+  margin: auto;
+  min-height: 95vh;
+  padding: 10vh;
+}
+
+#garrison-detail-container p {
+  padding: 1vh;
+}
 /* Add Garrison Component */
 
 #add-garrison-container {
   width: 80vw;
-  height: 80vh;
+  min-height: 95vh;
   margin: 5vh auto;
   padding: 10vh;
   border: solid 1px black;
@@ -289,5 +326,4 @@ Button {
   left: 0;
   bottom: 0;
   padding-top: 1.5vh;
-
 }

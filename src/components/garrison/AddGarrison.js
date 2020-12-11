@@ -51,7 +51,7 @@ export default class AddGarrison extends React.Component {
     } else {
       return (
         <div id="add-garrison-container">
-          <h1>Add Garrisons Form!</h1>
+          <h1>Add Garrison</h1>
           <form onSubmit={this.handleSubmit}>
             <label>
               Chapter:

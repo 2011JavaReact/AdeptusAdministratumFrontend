@@ -16,17 +16,20 @@ import EditGarrison from "./components/garrison/EditGarrison";
 import FooterContainer from "./containers/FooterContainer";
 
 class App extends React.Component {
-  
   render() {
     return (
       <Router>
         <div className="App">
-          <div>
+          <div id="nav-div">
             <NavBarContainer />
           </div>
           <div className="app-div">
             <Switch>
-              <Route exact path="/" render={(routerProps) => <Home {...routerProps} />} />
+              <Route
+                exact
+                path="/"
+                render={(routerProps) => <Home {...routerProps} />}
+              />
               <Route exact path="/planets" component={PlanetContainer} />
               <Route exact path="/planets/new" component={AddPlanet} />
               <Route
