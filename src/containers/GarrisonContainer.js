@@ -7,7 +7,6 @@ const PLANET_URL = "http://52.53.150.109:8080/AdeptusAdministratum/planets";
 const GARRISON_URL = "http://52.53.150.109:8080/AdeptusAdministratum/garrisons";
 
 export default class GarrisonContainer extends React.Component {
-  
   state = {
     id: 0,
     name: undefined,
@@ -15,20 +14,20 @@ export default class GarrisonContainer extends React.Component {
     population: 0,
     garrisonId: 0,
     planetArray: [
-        {
-            id: 0,
-            name: "",
-            inhabitants: "",
-            population: 0,
-            garrison_id: 0
-        }
+      {
+        id: 0,
+        name: "",
+        inhabitants: "",
+        population: 0,
+        garrison_id: 0,
+      },
     ],
     garrisonArray: [
-        {
-            id: 0,
-            chapter: "",
-            size: 0
-        }
+      {
+        id: 0,
+        chapter: "",
+        size: 0,
+      },
     ],
   };
 
@@ -36,10 +35,8 @@ export default class GarrisonContainer extends React.Component {
     fetch(GARRISON_URL)
       .then((resp) => resp.json())
       .then((json) => {
-        this.setState(
-          { garrisonArray: [...json] },
-          () =>
-            console.log("returned array from fetch: ", this.state.garrisonArray)
+        this.setState({ garrisonArray: [...json] }, () =>
+          console.log("returned array from fetch: ", this.state.garrisonArray)
         );
       });
   }

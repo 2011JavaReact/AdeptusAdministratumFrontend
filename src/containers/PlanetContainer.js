@@ -35,9 +35,7 @@ export default class PlanetContainer extends React.Component {
     fetch(PLANET_URL)
       .then((resp) => resp.json())
       .then((json) => {
-        this.setState({ planetArray: [...json] }, () =>
-          console.log("returned array from fetch: ", this.state.planetArray)
-        );
+        this.setState({ planetArray: [...json] });
       });
   }
 
