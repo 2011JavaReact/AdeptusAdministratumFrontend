@@ -9,6 +9,7 @@ import PlanetContainer from "./containers/PlanetContainer";
 import PlanetDetail from "./components/planet/PlanetDetail";
 import AddPlanet from "./components/planet/AddPlanet";
 import EditPlanet from "./components/planet/EditPlanet";
+import SearchPlanets from "./components/planet/SearchPlanets";
 import GarrisonContainer from "./containers/GarrisonContainer";
 import GarrisonDetail from "./components/garrison/GarrisonDetail";
 import AddGarrison from "./components/garrison/AddGarrison";
@@ -37,6 +38,7 @@ class App extends React.Component {
                 path="/planets/:id/edit"
                 render={(routerProps) => <EditPlanet {...routerProps} />}
               />
+              <Route exact path="/planets/search" component={SearchPlanets} />
               <Route
                 exact
                 path="/planets/:id"

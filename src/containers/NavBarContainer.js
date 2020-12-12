@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import logo from "../images/logo.png";
 import planet2 from "../images/planet2.jpg";
 import army2 from "../images/army2.jpg";
@@ -28,7 +29,13 @@ export default class NavBarContainer extends React.Component {
             <img src={army2} alt="Garrison Logo" />
             Garrisons
           </NavLink>
-          <div>Search Inhabitants</div>
+          <NavLink
+            activeClassName="active"
+            className="menu-link"
+            to="/planets/search"
+          >
+            Planet Search
+          </NavLink>
         </div>
         <div id="user-items">
           <Link className="menu-link" to="/login">
