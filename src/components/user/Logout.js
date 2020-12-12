@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 
 const LOGOUT_URL = "http://52.53.150.109:8080/AdeptusAdministratum/logout";
 
@@ -32,21 +32,24 @@ export default class Login extends React.Component {
 
     fetch(LOGOUT_URL, configObject)
       .then((resp) => {
-        console.log(resp)  
-        resp.json()
+        resp.json();
       })
       .then((json) => {
-        console.log(json)
-        this.setState({ redirect: true })
+        this.props.returnLogout(false);
+        this.setState({ redirect: true });
       });
   };
 
   render() {
     if (this.state.redirect) {
-      return <Redirect to={{
-        pathname: "/",
-        state: { message: "Successfully Logged Out!" },
-      }}/>;
+      return (
+        <Redirect
+          to={{
+            pathname: "/",
+            state: { message: "Successfully Logged Out!" },
+          }}
+        />
+      );
     } else {
       return (
         <div className="login-container">

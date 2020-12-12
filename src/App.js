@@ -17,12 +17,20 @@ import EditGarrison from "./components/garrison/EditGarrison";
 import FooterContainer from "./containers/FooterContainer";
 
 class App extends React.Component {
+  state = {
+    login: false,
+  };
+
+  updateUser = (loginBoolean) => {
+    this.setState({ login: loginBoolean });
+  };
+
   render() {
     return (
       <Router>
         <div className="App">
           <div id="nav-div">
-            <NavBarContainer />
+            <NavBarContainer login={this.state.login} />
           </div>
           <div className="app-div">
             <Switch>
@@ -56,8 +64,20 @@ class App extends React.Component {
                 path="/garrisons/:id"
                 render={(routerProps) => <GarrisonDetail {...routerProps} />}
               />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/logout" component={Logout} />
+              <Route
+                exact
+                path="/login"
+                render={(routerProps) => (
+                  <Login {...routerProps} returnLogin={this.updateUser} />
+                )}
+              />
+              <Route
+                exact
+                path="/logout"
+                render={(routerProps) => (
+                  <Logout {...routerProps} returnLogout={this.updateUser} />
+                )}
+              />
             </Switch>
           </div>
           <div>

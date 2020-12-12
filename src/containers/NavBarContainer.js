@@ -7,6 +7,16 @@ import planet2 from "../images/planet2.jpg";
 import army2 from "../images/army2.jpg";
 
 export default class NavBarContainer extends React.Component {
+  state = {
+    login: false,
+  };
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.login !== this.props.login) {
+      this.setState({ login: this.props.login });
+    }
+  }
+
   render() {
     return (
       <div id="navbar-container">
@@ -17,7 +27,12 @@ export default class NavBarContainer extends React.Component {
           </NavLink>
         </div>
         <div id="navbar-items">
-          <NavLink activeClassName="active" className="menu-link" to="/planets">
+          <NavLink
+            exact
+            activeClassName="active"
+            className="menu-link"
+            to="/planets"
+          >
             <img src={planet2} alt="Planet Logo" />
             Planets
           </NavLink>
@@ -38,12 +53,15 @@ export default class NavBarContainer extends React.Component {
           </NavLink>
         </div>
         <div id="user-items">
-          <Link className="menu-link" to="/login">
-            Login
-          </Link>
-          <Link className="menu-link" to="/logout">
-            Logout
-          </Link>
+          {this.state.login ? (
+            <Link className="menu-link" to="/logout">
+              Logout
+            </Link>
+          ) : (
+            <Link className="menu-link" to="/login">
+              Login
+            </Link>
+          )}
         </div>
       </div>
     );
