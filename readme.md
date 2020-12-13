@@ -6,7 +6,7 @@ The front end / user interface for the Adeptus Administratum API developed by Ka
 
 The Adeptus Administratum is the administrative and bureaucratic heart of the Imperium of Man, managing thousands of worlds, billions of soldiers, and trillions of citizens.
 
-# Features
+## Features
 
 <ul>
 <li>Manage Planets
@@ -26,17 +26,17 @@ The Adeptus Administratum is the administrative and bureaucratic heart of the Im
 </ul>
 </li>
 <li>Search for planets by inhabitant</li>
-<li>User Login / Logout</li>
+<li>User login / logout</li>
 </ul>
 
-# Instructions
+## Instructions
 
-## User
+### User
 
 Hosted on Amazon Web Services S3 static website server.
 Access at: http://adeptusadministratum.s3-website-us-west-1.amazonaws.com/
 
-## Developer
+### Developer
 
 Github user interface source files: https://github.com/2011JavaReact/AdeptusAdministratumFrontend
 
@@ -52,9 +52,9 @@ npm start
 
 Github API source files: https://github.com/2011JavaReact/AdeptusAdministratum
 
-Refer to readme for API features, database details, and installation instructions.
+Refer to Readme for API features, database details, and installation instructions.
 
-# Technologies
+## Technologies
 
 <ul>
 <li>JavaScript</li>
@@ -63,7 +63,7 @@ Refer to readme for API features, database details, and installation instruction
 <li>CSS</li>
 </ul>
 
-# Project Requirements
+## Project Requirements
 
 - [x] Utilize at least 4 routes from API (not including authentication).
 
@@ -71,7 +71,7 @@ Result: 9+ routes utilized including: GET POST /planets, GET DELETE /planets/:id
 
 - [x] Successfully query and perform transactions to the DB.
 
-Result: Able to view, add, modify, and delete both planets and garrisons. Also able to search for planets by inhabitants..
+Result: Able to view, add, modify, and delete both planets and garrisons. Also able to search for planets by inhabitants.
 
 - [x] Make minor revisions to the API that you wrote (if applicable).
 
@@ -87,7 +87,7 @@ Result: Successfully deployed and running on AWS S3.
 
 - [x] Create a pipeline using Jenkins that achieves continuous delivery/ continuous deployment (either or).
 
-Result: Jenkins pipeline successfully deployed and working well. It made update during the project much easier - especially for the multiple CORS related changes to web.xml.
+Result: Jenkins pipeline for continuous deployment successfully implemented and working well. It made updates during the project much easier - especially for the multiple CORS related changes to web.xml.
 
 - [x] Documentation for front end (you can also fix your documentation for your backend if needed).
 
@@ -109,12 +109,12 @@ Result: Added custom CSS to entire UI.
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/2011JavaReact/AdeptusAdministratumFrontend. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-Written by **Andrew Capp** in conjunction with _Revature_ - December 2020.
+Written by **Andrew Capp** and **Karl Matthes** in conjunction with _Revature_ - December 2020.
 
 ## License
 
-This API is available as open source under the terms of the [The MIT License](https://github.com/2011JavaReact/AdeptusAdministratumFrontend/blob/main/LICENSE).
+This API is available as open source under the terms of the [The MIT License](https://github.com/2011JavaReact/AdeptusAdministratumFrontend/blob/master/LICENSE.md).
 
 ## Code of Conduct
 
-Everyone interacting in the project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/2011JavaReact/AdeptusAdministratumFrontend/blob/main/CODE_OF_CONDUCT.md).
+Everyone interacting in the project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/2011JavaReact/AdeptusAdministratumFrontend/blob/master/CODE_OF_CONDUCT.md).
