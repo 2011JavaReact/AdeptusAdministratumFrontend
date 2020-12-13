@@ -5,6 +5,7 @@ import { Redirect } from "react-router-dom";
 import logo from "../images/logo.png";
 import planet2 from "../images/planet2.jpg";
 import army2 from "../images/army2.jpg";
+import search from "../images/search.png";
 
 export default class NavBarContainer extends React.Component {
   state = {
@@ -49,6 +50,7 @@ export default class NavBarContainer extends React.Component {
             className="menu-link"
             to="/planets/search"
           >
+            <img src={search} alt="Search Logo" />
             Search Empire
           </NavLink>
         </div>

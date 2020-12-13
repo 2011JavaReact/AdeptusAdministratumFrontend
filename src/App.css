@@ -215,6 +215,7 @@ Button {
 
 .planet-table tbody td {
   padding: 2vh;
+  opacity: 1;
 }
 
 #population {
@@ -314,6 +315,59 @@ Button {
   padding: 2vh;
 }
 
+/* Search for Inhabitants */
+
+#search-container {
+  display: grid;
+  background: url("./images/stars.png");
+  background-size: cover;
+  background-blend-mode: lighten;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 5vh 45vh auto;
+  text-align: center;
+  color: white;
+  max-width: 100%;
+  margin: auto;
+  min-height: 95vh;
+  padding: 10vh;
+}
+
+#search-heading {
+  grid-row-start: 1;
+  grid-column-start: 1;
+  grid-column-end: span 2;
+}
+
+#search-form-container {
+  align-items: center;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 1;
+}
+
+#search-form-container form {
+  padding: 5vh;
+  height: 100%;
+}
+#search-image-container {
+  grid-row-start: 2;
+  /* grid-row-end: 2; */
+  grid-column-start: 2;
+  /* align-items: center; */
+}
+
+#search-image-container img {
+  object-fit: cover;
+  margin: auto;
+  height: 100%;
+}
+
+#search-result-container {
+  grid-row-start: 3;
+  grid-column-start: 1;
+  grid-column-end: 2 span;
+}
 /* Footer CSS */
 
 #footer-container {
