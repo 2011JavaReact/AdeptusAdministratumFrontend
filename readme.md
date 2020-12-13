@@ -52,7 +52,7 @@ npm start
 
 Github API source files: https://github.com/2011JavaReact/AdeptusAdministratum
 
-Refer to readme for API features and installation instructions.
+Refer to readme for API features, database details, and installation instructions.
 
 # Technologies
 
@@ -65,18 +65,45 @@ Refer to readme for API features and installation instructions.
 
 # Project Requirements
 
-[] A front end client
+- [x] Utilize at least 4 routes from API (not including authentication).
 
-- [ ] that utilizes at least 4 of the routes from your teammates web service (not including authentication endpoints).
+Result: 9+ routes utilized including: GET POST /planets, GET DELETE /planets/:id, /planets/:id/edit, /planets/new, /garrisons, /garrisons/:id, /garrisons/:id/edit, /garrisons/new, /empire (search for inhabitants).
 
-Front end should be able to successfully query and perform transactions to the DB via the web service
-Make minor revisions to the API that you wrote (if applicable)
-Deploy Servlet application to server on AWS EC2
-Deploy your frontend to AWS as well (many different ways to do this)
-Create a pipeline using Jenkins that achieves continuous delivery/ continuous deployment (either or)
-Documentation for front end (you can also fix your documentation for your backend if needed)
-Login Functionality
-Follow basic Scrum/Agile practices/techniques: Sprint Planning Meeting, User Stories, Scrum Board, Standup meetings
+- [x] Successfully query and perform transactions to the DB.
+
+Result: Able to view, add, modify, and delete both planets and garrisons. Also able to search for planets by inhabitants..
+
+- [x] Make minor revisions to the API that you wrote (if applicable).
+
+Result: Only a few small revisions were needed.
+
+- [x] Deploy Servlet application to server on AWS EC2.
+
+Result: Successfully deployed and running on AWS EC2.
+
+- [x] Deploy your frontend to AWS as well.
+
+Result: Successfully deployed and running on AWS S3.
+
+- [x] Create a pipeline using Jenkins that achieves continuous delivery/ continuous deployment (either or).
+
+Result: Jenkins pipeline successfully deployed and working well. It made update during the project much easier - especially for the multiple CORS related changes to web.xml.
+
+- [x] Documentation for front end (you can also fix your documentation for your backend if needed).
+
+Result: Utilizing this Readme.md for documentation.
+
+- [x] Login Functionality.
+
+Result: UI has login and logout functionality. Note that API requires username and password for logout.
+
+- [x] Follow basic Scrum/Agile practices/techniques: Sprint Planning Meeting, User Stories, Scrum Board, Standup meetings.
+
+Result: Utilized Scrum Board with detailed Product Backlog and Spring Backlog Items Plan. Product Backlog consists of user stories. Had Sprint Planning Meeting and multiple Daily Scrum Meetings with partner.
+
+- [x] Stretch Goal: Make your app aesthetically pleasing.
+
+Result: Added custom CSS to entire UI.
 
 ## Contributing
 
