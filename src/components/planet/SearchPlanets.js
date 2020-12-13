@@ -36,7 +36,7 @@ export default class SearchPlanets extends React.Component {
     return (
       <div id="search-container">
         <div id="search-heading">
-          <h1>Search Administratum for Inhabitants</h1>
+          <h2>Search Administratum for Inhabitants</h2>
         </div>
         <div id="search-form-container">
           <form onSubmit={this.handleSearch}>

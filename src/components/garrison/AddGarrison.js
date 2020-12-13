@@ -8,7 +8,7 @@ export default class AddGarrison extends React.Component {
   state = {
     id: 0,
     chapter: "",
-    size: 0,
+    size: "",
     redirect: false,
   };
 

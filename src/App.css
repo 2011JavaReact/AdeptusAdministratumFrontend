@@ -131,6 +131,8 @@ Button {
 /* Login / Logout CSS */
 
 .login-container {
+  background-color: rgb(238, 240, 241);
+  min-height: 96vh;
   padding: 10vh;
   text-align: center;
 }
@@ -241,14 +243,16 @@ Button {
   /* background: rgb(53, 107, 207); */
 }
 
-#add-planet-container form label {
-  /* background-color: grey;
-  opacity: .5;
-  border-radius: 10vh; */
-
-  /* width: 40vw;
-  margin: auto; */
+#add-planet-container form {
+  width: 50vw;
+  background-color: rgb(141, 145, 148);
+  margin: auto;
+  color: black;
+  border-radius: 5vh;
+  padding: 2vh;
+  opacity: 0.8;
 }
+
 #add-planet-container label {
   display: block;
   padding: 2vh;
@@ -302,12 +306,23 @@ Button {
 /* Add Garrison Component */
 
 #add-garrison-container {
-  width: 80vw;
+  background: url("./images/castle.jpg") no-repeat;
+  background-size: cover;
+  /* width: 80vw; */
   min-height: 95vh;
   margin: 5vh auto;
   padding: 10vh;
   border: solid 1px black;
   text-align: center;
+}
+#add-garrison-container form {
+  width: 50vw;
+  background-color: rgb(141, 145, 148);
+  margin: auto;
+  color: black;
+  border-radius: 5vh;
+  padding: 2vh;
+  opacity: 0.8;
 }
 
 #add-garrison-container label {
@@ -340,6 +355,7 @@ Button {
 
 #search-form-container {
   align-items: center;
+
   grid-row-start: 2;
   grid-row-end: 2;
   grid-column-start: 1;
@@ -347,7 +363,7 @@ Button {
 }
 
 #search-form-container form {
-  padding: 5vh;
+  padding-top: 15vh;
   height: 100%;
 }
 #search-image-container {
