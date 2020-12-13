@@ -67,7 +67,7 @@ Refer to Readme for API features, database details, and installation instruction
 
 - [x] Utilize at least 4 routes from API (not including authentication).
 
-Result: 9+ routes utilized including: GET POST /planets, GET DELETE /planets/:id, /planets/:id/edit, /planets/new, /garrisons, /garrisons/:id, /garrisons/:id/edit, /garrisons/new, /empire (search for inhabitants).
+Result: 9+ routes utilized including: /planets, /planets/:id, /planets/:id/edit, /planets/new, /garrisons, /garrisons/:id, /garrisons/:id/edit, /garrisons/new, /empire (search for inhabitants).
 
 - [x] Successfully query and perform transactions to the DB.
 
@@ -75,7 +75,7 @@ Result: Able to view, add, modify, and delete both planets and garrisons. Also a
 
 - [x] Make minor revisions to the API that you wrote (if applicable).
 
-Result: Only a few small revisions were needed.
+Result: Only a few small revisions were needed (mainly CORS related).
 
 - [x] Deploy Servlet application to server on AWS EC2.
 
@@ -99,7 +99,7 @@ Result: UI has login and logout functionality. Note that API requires username a
 
 - [x] Follow basic Scrum/Agile practices/techniques: Sprint Planning Meeting, User Stories, Scrum Board, Standup meetings.
 
-Result: Utilized Scrum Board with detailed Product Backlog and Spring Backlog Items Plan. Product Backlog consists of user stories. Had Sprint Planning Meeting and multiple Daily Scrum Meetings with partner.
+Result: Utilized Scrum Board with detailed Product Backlog and Sprint Backlog Items Plan. Product Backlog consists of user stories. Had Sprint Planning Meeting and multiple Daily Scrum Meetings with partner.
 
 - [x] Stretch Goal: Make your app aesthetically pleasing.
 
