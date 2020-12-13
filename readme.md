@@ -22,7 +22,7 @@ The Adeptus Administratum is the administrative and bureaucratic heart of the Im
 <li>View all garrisons in Administratum</li>
 <li>View details for a garrison</li>
 <li>Modify details for a garrison</li>
-<li>Add and remove garrisons</li>
+<li>Add and remove garrisons (Note: Garrison cannot be assigned to any planets if deleting)</li>
 </ul>
 </li>
 <li>Search for planets by inhabitant</li>

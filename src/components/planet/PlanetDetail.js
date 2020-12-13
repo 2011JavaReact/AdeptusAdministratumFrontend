@@ -27,22 +27,14 @@ export default class PlanetDetail extends React.Component {
           chapter: json.garrison.chapter,
           size: json.garrison.size,
         };
-        this.setState(
-          {
-            id: json.id,
-            name: json.name,
-            inhabitants: json.inhabitants,
-            population: json.population,
-            garrisonId: json.garrison_id,
-            garrison: { ...garrison },
-          },
-          () =>
-            console.log(
-              "returned from fetch in PlanetDetail: ",
-              this.state,
-              this.props
-            )
-        );
+        this.setState({
+          id: json.id,
+          name: json.name,
+          inhabitants: json.inhabitants,
+          population: json.population,
+          garrisonId: json.garrison_id,
+          garrison: { ...garrison },
+        });
       });
   }
 

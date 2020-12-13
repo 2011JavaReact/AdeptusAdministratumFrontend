@@ -11,42 +11,24 @@ export default class GarrisonDetail extends React.Component {
     chapter: "",
     size: 0,
     redirect: false,
-    planetArray: [
-      {
-        id: 0,
-        name: "",
-        inhabitants: "",
-        population: 0,
-        garrison_id: 0,
-      },
-    ],
+    planetArray: [],
   };
 
   componentDidMount() {
     fetch(BASE_URL + this.props.match.url)
       .then((resp) => resp.json())
       .then((json) => {
-        this.setState(
-          {
-            id: json.id,
-            chapter: json.chapter,
-            size: json.size,
-          },
-          () =>
-            console.log(
-              "returned from fetch in GarrisonDetail: ",
-              this.state,
-              this.props
-            )
-        );
+        this.setState({
+          id: json.id,
+          chapter: json.chapter,
+          size: json.size,
+        });
       });
 
     fetch(PLANET_URL)
       .then((resp) => resp.json())
       .then((json) => {
-        this.setState({ planetArray: [...json] }, () =>
-          console.log("returned array from fetch: ", this.state.planetArray)
-        );
+        this.setState({ planetArray: [...json] });
       });
   }
 
@@ -58,10 +40,13 @@ export default class GarrisonDetail extends React.Component {
         Accept: "application/json",
       },
     };
-
-    fetch(BASE_URL + this.props.match.url, configObject).then((resp) =>
-      this.setState({ redirect: true })
-    );
+    if (this.filteredPlanetArray().length < 1) {
+      fetch(BASE_URL + this.props.match.url, configObject).then((resp) =>
+        this.setState({ redirect: true })
+      );
+    } else {
+      alert("Unable to Delete - Must not be assigned to any planets.");
+    }
   };
 
   formatNumber = (number) => {
@@ -73,24 +58,29 @@ export default class GarrisonDetail extends React.Component {
     return numberArry[0];
   };
 
-  sortedPlanetList = () => {
-    // First get only planets belonging to this garrison
-    const filteredPlanetArray = this.state.planetArray.filter((planet) => {
+  filteredPlanetArray = () => {
+    // Get only planets belonging to this garrison
+    return this.state.planetArray.filter((planet) => {
       return planet.garrison_id === this.state.id;
     });
+  };
+
+  sortedPlanetList = () => {
     // Second, sort and return table of planets
-    if (filteredPlanetArray.length < 1) {
+    if (this.filteredPlanetArray().length < 1) {
       return <p>Not Assigned to Any Planets</p>;
     } else {
-      const sortedPlanetArray = filteredPlanetArray.sort((planetA, planetB) => {
-        if (planetA.name.toUpperCase() < planetB.name.toUpperCase()) {
-          return -1;
+      const sortedPlanetArray = this.filteredPlanetArray().sort(
+        (planetA, planetB) => {
+          if (planetA.name.toUpperCase() < planetB.name.toUpperCase()) {
+            return -1;
+          }
+          if (planetB.name.toUpperCase() < planetA.name.toUpperCase()) {
+            return 1;
+          }
+          return 0;
         }
-        if (planetB.name.toUpperCase() < planetA.name.toUpperCase()) {
-          return 1;
-        }
-        return 0;
-      });
+      );
       return <PlanetList planetArray={sortedPlanetArray} />;
     }
   };
@@ -118,6 +108,7 @@ export default class GarrisonDetail extends React.Component {
           <button id="deleteBtn" onClick={this.handleDelete}>
             Delete Garrison
           </button>
+          <p>Note: Delete garrison only if "Not Assigned to Any Planets."</p>
         </div>
       );
     }
