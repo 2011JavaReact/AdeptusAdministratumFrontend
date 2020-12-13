@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 
 const BASE_URL = "http://52.53.150.109:8080/AdeptusAdministratum";
 const GARRISON_URL = "http://52.53.150.109:8080/AdeptusAdministratum/garrisons";
@@ -9,21 +9,20 @@ export default class EditGarrison extends React.Component {
     id: "",
     chapter: "",
     size: "",
-    redirect: false
+    redirect: false,
   };
 
   componentDidMount() {
-    
     fetch(BASE_URL + this.props.match.url)
       .then((resp) => resp.json())
       .then((json) => {
         console.log(json);
-        
+
         this.setState(
           {
             id: json.id,
             chapter: json.chapter,
-            size: json.size
+            size: json.size,
           },
           () => console.log("returned from fetch in GarrisonEDIT: ", this.state)
         );
@@ -68,7 +67,7 @@ export default class EditGarrison extends React.Component {
     } else {
       return (
         <div id="add-garrison-container">
-          <h1>Add Garrisons Form!</h1>
+          <h1>Modify Garrison</h1>
           <form onSubmit={this.handleSubmit}>
             <label>
               Chapter:
@@ -89,9 +88,7 @@ export default class EditGarrison extends React.Component {
                 step="1000"
               />
             </label>
-            <button type="submit">
-              Update
-            </button>
+            <button type="submit">Update</button>
           </form>
         </div>
       );

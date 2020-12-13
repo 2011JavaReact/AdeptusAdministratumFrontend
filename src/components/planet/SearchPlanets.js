@@ -1,8 +1,20 @@
 import React from "react";
+import PlanetView from "./PlanetView";
+
+const SEARCH_URL =
+  "http://52.53.150.109:8080/AdeptusAdministratum/empire?inhabitants=";
 
 export default class SearchPlanets extends React.Component {
   state = {
     inhabitants: "",
+    planetArray: [],
+    garrisonArray: [
+      {
+        id: 0,
+        chapter: "",
+        size: 0,
+      },
+    ],
   };
 
   handleChange = (e) => {
@@ -11,6 +23,11 @@ export default class SearchPlanets extends React.Component {
 
   handleSearch = (e) => {
     e.preventDefault();
+    fetch(SEARCH_URL + this.state.inhabitants)
+      .then((resp) => resp.json())
+      .then((json) => {
+        this.setState({ planetArray: [...json] });
+      });
   };
 
   render() {
@@ -26,9 +43,10 @@ export default class SearchPlanets extends React.Component {
           />
           <button>Search</button>
         </form>
+        {this.state.planetArray.length < 1 ? null : (
+          <PlanetView planetArray={this.state.planetArray} />
+        )}
       </>
     );
   }
 }
-
-// Example URL: http://52.53.150.109:8080/AdeptusAdministratum/planets?inhabitants=Human

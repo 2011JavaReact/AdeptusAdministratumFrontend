@@ -49,7 +49,7 @@ export default class NavBarContainer extends React.Component {
             className="menu-link"
             to="/planets/search"
           >
-            Planet Search
+            Search Empire
           </NavLink>
         </div>
         <div id="user-items">

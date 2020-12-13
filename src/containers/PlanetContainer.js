@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PlanetView from "../components/planet/PlanetView";
+
 // import fetchPlanets from "../actions/fetchPlanets";
-import PlanetList from "../components/planet/PlanetList";
+// import PlanetList from "../components/planet/PlanetList";
 
 const PLANET_URL = "http://52.53.150.109:8080/AdeptusAdministratum/planets";
 const GARRISON_URL = "http://52.53.150.109:8080/AdeptusAdministratum/garrisons";
@@ -39,26 +41,26 @@ export default class PlanetContainer extends React.Component {
       });
   }
 
-  sortedPlanetList = () => {
-    const sortedPlanetArray = this.state.planetArray.sort(
-      (planetA, planetB) => {
-        if (planetA.name.toUpperCase() < planetB.name.toUpperCase()) {
-          return -1;
-        }
-        if (planetB.name.toUpperCase() < planetA.name.toUpperCase()) {
-          return 1;
-        }
-        return 0;
-      }
-    );
-    return <PlanetList planetArray={sortedPlanetArray} />;
-  };
+  // sortedPlanetList = () => {
+  //   const sortedPlanetArray = this.state.planetArray.sort(
+  //     (planetA, planetB) => {
+  //       if (planetA.name.toUpperCase() < planetB.name.toUpperCase()) {
+  //         return -1;
+  //       }
+  //       if (planetB.name.toUpperCase() < planetA.name.toUpperCase()) {
+  //         return 1;
+  //       }
+  //       return 0;
+  //     }
+  //   );
+  //   return <PlanetList planetArray={sortedPlanetArray} />;
+  // };
 
   render() {
     return (
       <div id="planet-container">
         <h1>All Planets in the Administratum</h1>
-        {this.sortedPlanetList()}
+        <PlanetView planetArray={this.state.planetArray} />
       </div>
     );
   }
