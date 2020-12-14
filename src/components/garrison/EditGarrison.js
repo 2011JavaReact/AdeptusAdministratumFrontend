@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 
 const BASE_URL = "http://52.53.150.109:8080/AdeptusAdministratum";
-const GARRISON_URL = "http://52.53.150.109:8080/AdeptusAdministratum/garrisons";
+// const GARRISON_URL = "http://52.53.150.109:8080/AdeptusAdministratum/garrisons";
 
 export default class EditGarrison extends React.Component {
   state = {
@@ -16,16 +16,11 @@ export default class EditGarrison extends React.Component {
     fetch(BASE_URL + this.props.match.url)
       .then((resp) => resp.json())
       .then((json) => {
-        console.log(json);
-
-        this.setState(
-          {
-            id: json.id,
-            chapter: json.chapter,
-            size: json.size,
-          },
-          () => console.log("returned from fetch in GarrisonEDIT: ", this.state)
-        );
+        this.setState({
+          id: json.id,
+          chapter: json.chapter,
+          size: json.size,
+        });
       });
   }
 
@@ -47,7 +42,6 @@ export default class EditGarrison extends React.Component {
         size: this.state.size,
       }),
     };
-    console.log(configObject);
 
     fetch(BASE_URL + "/garrisons/" + this.state.id, configObject)
       .then((resp) => resp.json())

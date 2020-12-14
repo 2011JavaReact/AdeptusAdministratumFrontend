@@ -82,7 +82,7 @@ export default class AddPlanet extends React.Component {
         <div id="add-planet-container">
           <h1>Add a Planet</h1>
           <form onSubmit={this.handleSubmit}>
-            <label for="name">Name:</label>
+            <label>Name:</label>
             <input
               type="text"
               name="name"
@@ -90,7 +90,7 @@ export default class AddPlanet extends React.Component {
               value={this.state.name}
             />
 
-            <label for="inhabitants">Inhabitants:</label>
+            <label>Inhabitants:</label>
             <input
               type="text"
               list="inhabitant-list"
@@ -105,7 +105,7 @@ export default class AddPlanet extends React.Component {
               <option>Ork</option>
             </datalist>
 
-            <label for="population">Population:</label>
+            <label>Population:</label>
             <input
               type="number"
               name="population"
@@ -114,7 +114,7 @@ export default class AddPlanet extends React.Component {
               step="1000"
             />
 
-            <label for="garrisonId">Garrison:</label>
+            <label>Garrison:</label>
             <select
               name="garrisonId"
               onChange={this.handleChange}

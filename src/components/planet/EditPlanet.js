@@ -36,23 +36,19 @@ export default class EditPlanet extends React.Component {
     fetch(PLANET_URL + this.props.match.url)
       .then((resp) => resp.json())
       .then((json) => {
-        console.log(json);
         const garrison = {
           id: json.garrison.id,
           chapter: json.garrison.chapter,
           size: json.garrison.size,
         };
-        this.setState(
-          {
-            id: json.id,
-            name: json.name,
-            inhabitants: json.inhabitants,
-            population: json.population,
-            garrisonId: json.garrison_id,
-            garrison: { ...garrison },
-          },
-          () => console.log("returned from fetch in PlanetEDIT: ", this.state)
-        );
+        this.setState({
+          id: json.id,
+          name: json.name,
+          inhabitants: json.inhabitants,
+          population: json.population,
+          garrisonId: json.garrison_id,
+          garrison: { ...garrison },
+        });
       });
   }
 
@@ -86,7 +82,6 @@ export default class EditPlanet extends React.Component {
         garrison_id: this.state.garrisonId,
       }),
     };
-    console.log(configObject);
 
     fetch(PLANET_URL + "/planets/" + this.state.id, configObject)
       .then((resp) => resp.json())
@@ -108,7 +103,7 @@ export default class EditPlanet extends React.Component {
         <div id="add-planet-container">
           <h1>Modify Planet</h1>
           <form onSubmit={this.handleSubmit}>
-            <label for="name">Name:</label>
+            <label>Name:</label>
             <input
               type="text"
               name="name"
@@ -116,7 +111,7 @@ export default class EditPlanet extends React.Component {
               value={this.state.name}
             />
 
-            <label for="inhabitants">Inhabitants:</label>
+            <label>Inhabitants:</label>
             <input
               type="text"
               list="inhabitant-list"
@@ -131,7 +126,7 @@ export default class EditPlanet extends React.Component {
               <option>Ork</option>
             </datalist>
 
-            <label for="population">Population:</label>
+            <label>Population:</label>
             <input
               type="number"
               name="population"
@@ -140,7 +135,7 @@ export default class EditPlanet extends React.Component {
               step="1000"
             />
 
-            <label for="garrisonId">Garrison:</label>
+            <label>Garrison:</label>
             <select
               name="garrisonId"
               onChange={this.handleChange}
