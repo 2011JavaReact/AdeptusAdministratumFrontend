@@ -31,7 +31,6 @@ export default class AddGarrison extends React.Component {
         size: this.state.size,
       }),
     };
-    console.log(configObject);
 
     fetch(GARRISON_URL, configObject)
       .then((resp) => resp.json())
